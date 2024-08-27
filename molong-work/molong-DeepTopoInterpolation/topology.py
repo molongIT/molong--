@@ -7,20 +7,8 @@ class topologyClass:
   def __init__(self):
     pass
   
-<<<<<<< Tabnine <<<<<<<
-def test(self):
-    """#+
-    这个函数用于测试topologyClass类中的方法是否正常运行。#+
-#+
-    该函数在topologyClass类中被定义，并在其__init__方法中被调用。#+
-    它通过打印一段文本来测试类是否正常运行。#+
-#+
-    该函数没有参数。#+
-#+
-    该函数没有返回值。#+
-    """#+
+  def test(self):
     print('这个类用于融合拓扑先验，找到拓扑失败点，已经实现长程拓扑关联探索模块。')
->>>>>>> Tabnine >>>>>>>
     
   """
   根据给定的比例系数分割图像成多个块。参数:
