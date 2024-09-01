@@ -14,3 +14,6 @@
 * molong-DeepTopoInterpolation是主要的项目入口，包括模型训练和测试
 * simple-unet-2d是Unet+topoloss的项目，已经复现成功，效果比Unet好（调参好），但是创新点作用一般。
 * Unet是最原始的医学分割模型，已经复现，效果很差。
+
+## 实验
+* 两台电脑一起跑!都利用起来!

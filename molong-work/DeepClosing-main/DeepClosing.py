@@ -39,7 +39,7 @@ def Masked_Shape_Reconstruction(config_path, device = torch.device("cuda:0")):
     save_dir = "./Logs"
     exp_save_dir = os.path.join(save_dir, config["Name"])
     os.makedirs(exp_save_dir, exist_ok=True)
-    logger = WandbLogger(project="DeepClosing",name=config["Name"], save_dir=exp_save_dir)
+    logger = WandbLogger(project="DeepClosing",name=config["Name"], save_dir=exp_save_dir,mode='offline')
     
     
     model = DeepClosing(config, device)
@@ -354,10 +354,8 @@ class DeepClosing(LightningModule):
 
 
 
-
-class Unet_MIM(nn.Module):
-    "Unet with Masked Image Modeling"
-
+"Unet with Masked Image Modeling"
+class Unet_MIM(nn.Module):   
     def __init__(self, in_chans=3, mask_ratio=0.75, loss_type="L2", image_size=224, patch_size=([2,8],[2,8]),
                  is_random_rotate=False, dropout_ratio=0.0, network_setting="default", final_act=None):
         """
@@ -582,6 +580,6 @@ def mask_generator2D_v2(input_tensor, mask_ratio, patch_sizes, if_random_affine=
 
 
 if __name__ == '__main__':
-    Masked_Shape_Reconstruction(config_path="./Config/DRIVE.yaml")
+    Masked_Shape_Reconstruction(config_path="/home/pxl/myProject/血管分割/molong-深度插值/molong-work/DeepClosing-main/Config/DRIVE.yaml")
 
     

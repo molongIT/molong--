@@ -139,7 +139,7 @@ if __name__ == "__main__":
     config = {
         "batch_size": 2,
     }
-    data_dir = "/root/DeepClosing/Data/Drive"
+    data_dir = "/home/pxl/myProject/血管分割/molong-深度插值/molong-work/DeepClosing-main/data/Drive"
     PL_dataset = DriveDataset_MIM_PL(config, data_dir=data_dir)
     train_loader = PL_dataset.train_dataloader()
     

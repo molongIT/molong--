@@ -39,7 +39,7 @@ class topologyClass:
     self.topologicalPriorAssistance(source)
 
     
-
+class DeepTopoInterpolation:
 # 主程序入口
 t = topologyClass()
 t.test()
