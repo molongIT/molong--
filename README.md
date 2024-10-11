@@ -20,3 +20,9 @@
 
 ## task:
 到底要不要做!
+
+## tda的cubical complex,是有cube矩形一步步组成.
+* Cubical Complex生成Barcode图像了. 需要概率图.
+* Filtration: 在获取二值化的图像后，我们继续通过filtration进行预处理。当然也可以直接使用二值化的图像作为输入进行TDA，这种为binary filtration。:通过逐步增加“尺度”（如从低值到高值），我们可以观察到在不同尺度下数据形状（如连通分量、环、空腔等）的生成和消失。这种分析提供了一个对数据内部结构的全景视图，有助于发现和理解数据的多尺度特征。
+* barcode或者diagram，那么如何把他变成一个数值、数组之类的，这样才能作为特征放入机器学习呀？
+  将persistent barcode/diagram矢量化（vectorization）。

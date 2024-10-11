@@ -136,6 +136,8 @@ class DriveDataset_MIM_PL(pl.LightningDataModule):
 
 # main
 if __name__ == "__main__":
+    import matplotlib.pyplot as plt
+
     config = {
         "batch_size": 2,
     }
@@ -143,8 +145,28 @@ if __name__ == "__main__":
     PL_dataset = DriveDataset_MIM_PL(config, data_dir=data_dir)
     train_loader = PL_dataset.train_dataloader()
     
-    for data in train_loader:
-        print(data)
-    
-    
-    
+    # 遍历数据集
+    for batch in train_loader:
+        # 打印整个 batch 结构，查看实际内容
+        print("Batch structure:", batch)
+        
+        # batch 是一个字典，通常包含 'image', 'mask', 'label' 作为 key
+        inputs = batch['image']
+        masks = batch['mask']
+        labels = batch['label']
+        
+        # 打印批次信息
+        print("Batch size:", len(inputs))
+        
+        # 遍历当前批次的每张图像
+        for i, img in enumerate(inputs):
+            # 如果图像是 Tensor, 转为 numpy 并反归一化以显示
+            if isinstance(img, torch.Tensor):
+                img = img.numpy().transpose(1, 2, 0)  # 转换形状为 (H, W, C)
+                img = (img * 255).astype(np.uint8)  # 转换到 0-255 范围
+
+            # 显示图像
+            plt.imshow(img, cmap='gray')  # 使用灰度图显示，或根据图像类型调整 cmap
+            plt.title(f"Image {i + 1} from Batch")
+            plt.axis('off')
+            plt.show()
